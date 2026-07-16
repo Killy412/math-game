@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加减法填空练习</title>
+    <link rel="stylesheet" href="css/math.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-row">
+            <a href="home.html" class="back-btn">🏠 返回</a>
+            <h1>加减法填空练习</h1>
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="controls">
+            <div class="difficulty">
+                <label>难度：</label>
+                <button class="btn btn-difficulty active" data-difficulty="easy">简单</button>
+                <button class="btn btn-difficulty" data-difficulty="medium">中等</button>
+                <button class="btn btn-difficulty" data-difficulty="hard">困难</button>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" id="newGame">新题目</button>
+                <button class="btn btn-secondary" id="checkBtn">检查答案</button>
+            </div>
+        </div>
+
+        <!-- 游戏信息 -->
+        <div class="game-info">
+            <span id="timer">时间: 00:00</span>
+            <span id="score">正确: 0/25</span>
+            <span id="status"></span>
+        </div>
+
+        <!-- 题目网格 -->
+        <div class="math-board" id="board">
+            <!-- 5x5 网格将由 JavaScript 动态生成 -->
+        </div>
+
+        <!-- 数字选择面板 -->
+        <div class="number-pad" id="numberPad">
+            <button class="num-btn" data-num="1">1</button>
+            <button class="num-btn" data-num="2">2</button>
+            <button class="num-btn" data-num="3">3</button>
+            <button class="num-btn" data-num="4">4</button>
+            <button class="num-btn" data-num="5">5</button>
+            <button class="num-btn" data-num="6">6</button>
+            <button class="num-btn" data-num="7">7</button>
+            <button class="num-btn" data-num="8">8</button>
+            <button class="num-btn" data-num="9">9</button>
+            <button class="num-btn" data-num="0">0</button>
+            <button class="num-btn clear" data-num="clear">清除</button>
+        </div>
+    </div>
+
+    <script src="js/math.js"></script>
+</body>
+</html>

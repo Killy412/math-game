@@ -1,0 +1,288 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+    color: #667eea;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
+/* 控制面板 */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.difficulty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.difficulty label {
+    color: #666;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5a6fd6;
+}
+
+.btn-secondary {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #d0d0d0;
+}
+
+.btn-difficulty {
+    background: #f0f0f0;
+    color: #666;
+    padding: 6px 12px;
+}
+
+.btn-difficulty:hover {
+    background: #e0e0e0;
+}
+
+.btn-difficulty.active {
+    background: #667eea;
+    color: white;
+}
+
+/* 游戏信息 */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+#status {
+    color: #667eea;
+    font-weight: 500;
+}
+
+/* 数独网格 */
+.sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    border: 3px solid #333;
+    border-radius: 8px;
+    background: white;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: background-color 0.2s ease;
+}
+
+/* 3x3 宫格边框 */
+.cell:nth-child(3n) {
+    border-right: 2px solid #333;
+}
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid #333;
+}
+
+.cell:nth-child(9n+1) {
+    border-left: 2px solid #333;
+}
+
+.cell:nth-child(-n+9) {
+    border-top: 2px solid #333;
+}
+
+.cell:nth-child(n+73) {
+    border-bottom: 2px solid #333;
+}
+
+/* 单元格状态 */
+.cell.fixed {
+    background: #f0f0f0;
+    color: #333;
+    cursor: default;
+}
+
+.cell.editable {
+    color: #667eea;
+}
+
+.cell.selected {
+    background: #e3f2fd;
+}
+
+.cell.highlighted {
+    background: #f5f5f5;
+}
+
+.cell.error {
+    background: #ffebee;
+    color: #e53935;
+}
+
+.cell:hover:not(.fixed) {
+    background: #f0f7ff;
+}
+
+/* 数字选择面板 */
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.num-btn {
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 2px solid #667eea;
+    border-radius: 10px;
+    background: white;
+    color: #667eea;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.num-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.num-btn.clear {
+    border-color: #e53935;
+    color: #e53935;
+}
+
+.num-btn.clear:hover {
+    background: #e53935;
+    color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+
+    .sudoku-board {
+        width: 320px;
+        height: 320px;
+    }
+
+    .cell {
+        font-size: 1.2rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .number-pad {
+        grid-template-columns: repeat(5, 1fr);
+        max-width: 320px;
+    }
+}
+
+/* 完成动画 */
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.celebrate {
+    animation: celebrate 0.5s ease-in-out 3;
+}

@@ -1,0 +1,326 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: fit-content;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+    color: #11998e;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #11998e;
+    color: white;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 0;
+    font-size: 1.8rem;
+}
+
+/* 控制面板 */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.difficulty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.difficulty label {
+    color: #666;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #11998e;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0d7a6e;
+}
+
+.btn-secondary {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #d0d0d0;
+}
+
+.btn-difficulty {
+    background: #f0f0f0;
+    color: #666;
+    padding: 6px 12px;
+}
+
+.btn-difficulty:hover {
+    background: #e0e0e0;
+}
+
+.btn-difficulty.active {
+    background: #11998e;
+    color: white;
+}
+
+/* 游戏信息 */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    color: #666;
+    font-size: 14px;
+    gap: 10px;
+}
+
+#status {
+    color: #11998e;
+    font-weight: 500;
+}
+
+/* 题目网格 */
+.math-board {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(80px, 1fr));
+    gap: 8px;
+    margin: 0 auto 20px;
+    width: auto;
+    max-width: 520px;
+}
+
+.math-cell {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 80px;
+    min-width: 70px;
+    border: 2px solid transparent;
+}
+
+.math-cell:hover {
+    background: #e8f5e9;
+}
+
+.math-cell.selected {
+    border-color: #11998e;
+    background: #e8f5e9;
+}
+
+.math-cell.correct {
+    background: #c8e6c9;
+    border-color: #4caf50;
+}
+
+.math-cell.wrong {
+    background: #ffcdd2;
+    border-color: #e53935;
+}
+
+/* 算式样式 */
+.equation {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.operator {
+    color: #11998e;
+    font-weight: bold;
+}
+
+.equals {
+    color: #666;
+}
+
+/* 答案输入框 */
+.answer-box {
+    width: 40px;
+    height: 32px;
+    border: 2px solid #11998e;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #11998e;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.answer-box.has-value {
+    background: #e8f5e9;
+}
+
+/* 数字选择面板 */
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(50px, 1fr));
+    gap: 6px;
+    width: auto;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.num-btn {
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 2px solid #11998e;
+    border-radius: 10px;
+    background: white;
+    color: #11998e;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.num-btn:hover {
+    background: #11998e;
+    color: white;
+}
+
+.num-btn.clear {
+    border-color: #e53935;
+    color: #e53935;
+    grid-column: span 2;
+}
+
+.num-btn.clear:hover {
+    background: #e53935;
+    color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 550px) {
+    .container {
+        padding: 15px;
+    }
+
+    .math-board {
+        grid-template-columns: repeat(5, minmax(60px, 1fr));
+        gap: 6px;
+    }
+
+    .math-cell {
+        padding: 8px 6px;
+        min-height: 65px;
+        min-width: 60px;
+    }
+
+    .equation {
+        font-size: 0.8rem;
+    }
+
+    .answer-box {
+        width: 35px;
+        height: 28px;
+        font-size: 1rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .number-pad {
+        grid-template-columns: repeat(6, minmax(40px, 1fr));
+        gap: 4px;
+    }
+
+    .num-btn {
+        padding: 8px 4px;
+        font-size: 1rem;
+    }
+}
+
+/* 完成动画 */
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.celebrate {
+    animation: celebrate 0.5s ease-in-out 3;
+}
+
+/* 星星效果 */
+.star {
+    color: #ffc107;
+    font-size: 1.5rem;
+}
