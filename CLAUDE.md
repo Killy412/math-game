@@ -24,11 +24,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 打开主页选择游戏：
 ```
-open home.html
+open index.html
 ```
 
 或直接打开某个游戏：
-- 数独游戏：`open index.html`
+- 数独游戏：`open sudoku.html`
 - 加减法练习：`open math.html`
 - KenKen：`open kenken.html`
 - Crossmath：`open crossmath.html`
@@ -37,8 +37,8 @@ open home.html
 
 ```
 shudu/
-├── home.html           # 游戏汇总主页 ⭐
-├── index.html          # 数独游戏
+├── index.html          # 游戏汇总主页 ⭐
+├── sudoku.html         # 数独游戏
 ├── math.html           # 加减法练习
 ├── kenken.html         # KenKen 游戏
 ├── crossmath.html      # Crossmath 游戏
