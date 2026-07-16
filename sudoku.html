@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crossmath 数学填字</title>
-    <link rel="stylesheet" href="css/crossmath.css">
+    <title>数独游戏</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         <div class="header-row">
             <a href="index.html" class="back-btn">🏠 返回</a>
-            <h1>Crossmath 数学填字</h1>
+            <h1>数独游戏</h1>
         </div>
 
         <!-- 控制面板 -->
         <div class="controls">
-            <div class="size-selector">
-                <label>大小：</label>
-                <button class="btn btn-size active" data-size="5">5×5</button>
-                <button class="btn btn-size" data-size="7">7×7</button>
-                <button class="btn btn-size" data-size="9">9×9</button>
+            <div class="difficulty">
+                <label>难度：</label>
+                <button class="btn btn-difficulty active" data-difficulty="easy">简单</button>
+                <button class="btn btn-difficulty" data-difficulty="medium">中等</button>
+                <button class="btn btn-difficulty" data-difficulty="hard">困难</button>
             </div>
             <div class="actions">
                 <button class="btn btn-primary" id="newGame">新游戏</button>
@@ -31,26 +31,12 @@
         <!-- 游戏信息 -->
         <div class="game-info">
             <span id="timer">时间: 00:00</span>
-            <span id="progress">进度: 0/0</span>
             <span id="status"></span>
         </div>
 
-        <!-- 游戏主区域 -->
-        <div class="game-area">
-            <!-- 横向提示 -->
-            <div class="clues-container">
-                <div class="clues-section">
-                    <h3>横向 →</h3>
-                    <div class="clues-list" id="acrossClues"></div>
-                </div>
-                <div class="clues-section">
-                    <h3>纵向 ↓</h3>
-                    <div class="clues-list" id="downClues"></div>
-                </div>
-            </div>
-
-            <!-- 网格 -->
-            <div class="crossmath-board" id="board"></div>
+        <!-- 数独网格 -->
+        <div class="sudoku-board" id="board">
+            <!-- 9x9 网格将由 JavaScript 动态生成 -->
         </div>
 
         <!-- 数字选择面板 -->
@@ -66,13 +52,9 @@
             <button class="num-btn" data-num="9">9</button>
             <button class="num-btn clear" data-num="0">清除</button>
         </div>
-
-        <!-- 说明 -->
-        <div class="instructions">
-            <p>填写数字使所有算式成立。横向和纵向算式交叉处共享数字。</p>
-        </div>
     </div>
 
-    <script src="js/crossmath.js"></script>
+    <script src="js/sudoku.js"></script>
+    <script src="js/game.js"></script>
 </body>
 </html>
